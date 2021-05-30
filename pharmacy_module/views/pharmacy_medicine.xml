@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='pharmacy_medicine_action' model='ir.actions.act_window'>
+        <field name="name">Medicine</field>
+        <field name="res_model">pharmacy_medicine</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <record id="pharmacy_medicine_view_form" model="ir.ui.view">
+        <field name="name">Adding Medicine Form</field>
+            <field name="model">pharmacy_medicine</field>
+            <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                    </group>
+                    <group>
+                        <field name="manufacturer"/>
+                        <field name="description"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="pharmacy_medicine_view_tree" model="ir.ui.view">
+        <field name="name">All Medicine List</field>
+        <field name="model">pharmacy_medicine</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="price"/>
+            <field name="manufacturer"/>
+            <field name="description"/>
+        </tree>
+        </field>
+    </record>
+    
+    
+    <menuitem name="My Pharmacy" id="pharmacy_base_menu" />
+    <menuitem name="Medicine" id="pharmacy_medicine_menu"
+    parent="pharmacy_base_menu" action="pharmacy_medicine_action"/>
+</odoo>
